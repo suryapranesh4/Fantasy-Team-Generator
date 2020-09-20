@@ -1,0 +1,159 @@
+.header{
+    background: steelblue;
+    color: white;
+    font-size: 40px;
+    padding: 15px 0;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listPlayers{
+    display: flex;
+}
+
+.playertable{
+    width: 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 0;
+    border-top: 2px solid black;
+}
+
+.playertable table{
+    border: 1px solid gray;
+    border-radius: 4px;
+    border-spacing: 0px;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.playertable th{
+    background: beige;
+    color: blueviolet;
+    padding: 20px 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.playertable td{
+    padding: 10px 0;
+}
+
+.playertable input{
+    width: 90%;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.playertable button{
+    background: steelblue;
+    border: 1px solid white;
+    width: 95%;
+    border-radius: 2px;
+    padding: 6px 0px;
+    color: white;
+    cursor: pointer;
+}
+
+.positionHeader{
+    color: white;
+    font-size: 15px;
+    background: steelblue;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+.noPlayers{
+    color: gray;
+    font-size: 15px;
+    padding: 10px 0;
+}
+
+.deleteButton{
+    cursor: pointer;
+    text-align: center;
+    color: tomato;
+}
+
+.playerName{
+    cursor: default;
+    text-align: center;
+}
+
+.generateTeam{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 100%;
+    cursor: pointer;
+}
+
+.squad{
+    background: green;
+    margin: 20px 0;
+    width: 90%;
+    display: flex;
+    margin: 30px auto 100px auto;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.generateTeamInvisible{
+    background-color: gray;
+    opacity: 0.5;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: 100%;
+    cursor: not-allowed;
+    margin-bottom: 20px;
+}
+
+.positionName{
+    color: white;
+    font-size: 20px;
+}
+
+.positionPlayers{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    color: steelblue;
+}
+
+.playerBox{
+    color: black;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .listPlayers{
+        flex-direction: column;
+    }
+
+    .playertable{
+        width: 100%;
+    }
+
+    .header{
+        font-size: 25px;
+    }
+}
