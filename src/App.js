@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { random } from './utils';
 import Players from './players';
@@ -10,37 +10,36 @@ export default function App() {
   const [batsmen,setBatsmen] = useState([]);
   const [allRounders,setAllRounders] = useState([]);
   const [bowlers,setBowlers] = useState([]);
-  // const [keeperLimit,setKeeperLimit] = useState(1);
-  // const [batsmenLimit,setBatsmenLimit] = useState(3);
-  // const [allRoundersLimit,setAllRoundersLimit] = useState(3);
-  // const [bowlersLimit,setBowlersLimit] = useState(4);
-  const keeperLimit = 1;
-  const batsmenLimit = 3;
-  const allRoundersLimit = 3;
-  const bowlersLimit = 4;
+  const [keeperLimit,setKeeperLimit] = useState(1);
+  const [batsmenLimit,setBatsmenLimit] = useState(3);;
+  const [allRoundersLimit,setAllRoundersLimit] = useState(4);
+  const [bowlersLimit,setBowlersLimit] = useState(3);
   const [squadKeepers,setSquadKeepers] = useState([]);
   const [squadBatsmen,setSquadBatsmen] = useState([]);
   const [squadAllRounders,setSquadAllRounders] = useState([]);
   const [squadBowlers,setSquadBowlers] = useState([]);
+  const squadLengthPerMatch = 22;
 
-  const [generateButtonVisible,setGenerateButtonVisible] = useState(false);
   const [generateBoxClicked,setGenerateBoxClicked] = useState(false);
 
-  // const [formation,setFormation] = useState('');
-  // const [formationList,setFormationList] = useState([
-    //   ''
-  // ])
+  const [formation,setFormation] = useState('1-3-4-3');
 
   var players = { keepers,keeperLimit,batsmen,batsmenLimit,allRounders,allRoundersLimit,bowlers,bowlersLimit,addAction,deleteAction };
   var squadPlayers = { squadKeepers,squadBatsmen,squadAllRounders,squadBowlers };
 
-  useEffect(()=>{
-    keepers && keepers.length >= 1 && 
-    batsmen && batsmen.length >= 3 && 
-    allRounders && allRounders.length >=3 &&
-    bowlers && bowlers.length >= 4 &&
-    setGenerateButtonVisible(true);
-  })
+  function isEnoughSquad(){
+    let allPlayers = [...keepers,...batsmen,...allRounders,...bowlers] || [];
+    return allPlayers.length === squadLengthPerMatch;
+  }
+
+  function formationOnChange(e){
+    let chosenFormation = e.target.value.split('-');
+    setKeeperLimit(chosenFormation[0]);
+    setBatsmenLimit(chosenFormation[1]);
+    setAllRoundersLimit(chosenFormation[2]);
+    setBowlersLimit(chosenFormation[3]);
+    setFormation(e.target.value);
+  }
 
   function addAction(player,position){
     switch(position){
@@ -96,14 +95,21 @@ export default function App() {
       <div className="playerList">
         <Players players={players} />
       </div>
-      {/* <select name="formation" id="formation">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select> */}
+      <div className="formationDiv">
+        <span>Formation : </span>
+        <select name="formation" id="formation" value={formation} onChange={e => formationOnChange(e)}>
+          <option value="1-3-4-3">1-3-4-3</option>
+          <option value="1-4-3-3">1-4-3-3</option>
+          <option value="1-4-2-4">1-4-2-4</option>
+          <option value="1-5-2-3">1-5-2-3</option>
+          <option value="1-3-3-4">1-3-3-4</option>
+          <option value="2-3-3-3">2-3-3-3</option>
+          <option value="2-4-2-3">2-4-2-3</option>
+          <option value="1-5-1-4">1-5-1-4</option>
+        </select>
+      </div>
       {
-        generateButtonVisible ? 
+        isEnoughSquad() ? 
         <button className="generateTeam" onClick={()=> generateSquad()}>Generate Dream Squad</button>
         :<button className="generateTeamInvisible" disabled>Generate Dream Squad</button>
       }

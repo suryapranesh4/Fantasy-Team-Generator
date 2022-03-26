@@ -144,6 +144,17 @@
     font-weight: 600;
 }
 
+.formationDiv{
+    display: flex;
+    justify-content: center;
+    color : steelblue;
+    margin : 0 0 20px 0;
+}
+
+.formationDiv select{
+    margin-left: 1%;
+}
+
 @media (max-width: 700px) {
     .listPlayers{
         flex-direction: column;
