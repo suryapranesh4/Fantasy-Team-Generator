@@ -16,5 +16,5 @@ Link to the app : http://dreamteamgenerator.herokuapp.com/
 ## Screenshot of the application
 
 
-![Dream Team Generator](screenshot.jpg "Dream Team Generator")
+![Dream Team Generator](screenshot.png "Dream Team Generator")
 
