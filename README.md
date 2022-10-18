@@ -12,3 +12,9 @@ P.S : Random team generated is an extremely lucky combination that helps you win
 
 
 Link to the app : http://dreamteamgenerator.herokuapp.com/
+
+## Screenshot of the application
+
+
+![Dream Team Generator](screenshot.jpg "Dream Team Generator")
+
