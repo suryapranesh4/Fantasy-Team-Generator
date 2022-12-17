@@ -11,7 +11,7 @@ P.S : Random team generated is an extremely lucky combination that helps you win
 </br>
 
 
-Link to the app : http://dreamteamgenerator.herokuapp.com/
+Link to the app : http://dream-team-generator.netlify.app
 
 ## Screenshot of the application
 
